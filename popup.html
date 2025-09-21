@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query Param Injector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Query Param Injector</h2>
+
+<div class="form">
+    <label>URL pattern (e.g. <code>google.com/api/*</code>)</label>
+    <input id="urlPattern" type="text" placeholder="google.com/api/*">
+
+    <label>Parameter name</label>
+    <input id="paramName" type="text" placeholder="token">
+
+    <label>Parameter value</label>
+    <input id="paramValue" type="text" placeholder="12345">
+
+    <label>
+        <input type="checkbox" id="enabled">
+        Enable rule
+    </label>
+
+    <div class="buttons">
+        <button id="save">Save Rule</button>
+        <button id="clear">Clear Rule</button>
+    </div>
+</div>
+
+<h3>Active Rule</h3>
+<pre id="activeRule">None</pre>
+
+<p id="status"></p>
+
+<script src="popup.js"></script>
+</body>
+</html>
