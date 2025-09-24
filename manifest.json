@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "QPInjector",
-  "version": "1.2",
-  "description": "Automatically append a query parameter to matching requests",
+  "name": "Query Param Injector",
+  "version": "1.3",
+  "description": "Automatically append configured query parameters to requests matching a target URL",
   "permissions": [
     "storage",
     "webRequest",
@@ -10,7 +10,9 @@
     "<all_urls>"
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
   },
   "browser_action": {
     "default_popup": "popup.html",

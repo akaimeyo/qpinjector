@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Query Param Injector</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<h2>Query Param Injector</h2>
+<div class="container">
+    <header>
+        <h1>Query Param Injector</h1>
+    </header>
 
-<div class="form">
-    <label>URL pattern (e.g. <code>google.com/api/*</code>)</label>
-    <input id="urlPattern" type="text" placeholder="google.com/api/*">
+    <section class="target">
+        <label class="label">Target URL (examples: <code>https://api.google.com/agent/api</code>,
+            <code>google.com/api/*</code>, <code>*/*</code>)</label>
+        <div class="row">
+            <input id="targetInput" type="text" placeholder="api.google.com/agent/api"/>
+            <button id="saveTarget">Save</button>
+        </div>
+        <div id="normalized" class="hint">Normalized: —</div>
+    </section>
 
-    <label>Parameter name</label>
-    <input id="paramName" type="text" placeholder="token">
+    <section class="rules">
+        <div class="rules-header">
+            <h2>Parameters</h2>
+            <button id="addBtn" class="small">Add</button>
+        </div>
+        <ul id="rulesList" class="list"></ul>
+    </section>
 
-    <label>Parameter value</label>
-    <input id="paramValue" type="text" placeholder="12345">
-
-    <label>
-        <input type="checkbox" id="enabled">
-        Enable rule
-    </label>
-
-    <div class="buttons">
-        <button id="save">Save Rule</button>
-        <button id="clear">Clear Rule</button>
-    </div>
+    <section class="add-form" id="addForm">
+        <h3 id="formTitle">Add parameter</h3>
+        <label class="label">Name</label>
+        <input id="paramName" type="text" placeholder="debug"/>
+        <label class="label">Value</label>
+        <input id="paramValue" type="text" placeholder="true"/>
+        <div class="row">
+            <label class="switch">
+                <input id="paramEnabled" type="checkbox" checked/>
+                <span class="slider"></span>
+            </label>
+            <span class="small-label">Enabled</span>
+            <div class="spacer"></div>
+            <button id="saveParam">Save</button>
+            <button id="cancelEdit" class="muted">Cancel</button>
+        </div>
+        <div id="formStatus" class="status"></div>
+    </section>
 </div>
-
-<h3>Active Rule</h3>
-<pre id="activeRule">None</pre>
-
-<p id="status"></p>
 
 <script src="popup.js"></script>
 </body>
